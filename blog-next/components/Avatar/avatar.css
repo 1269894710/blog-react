@@ -1,0 +1,9 @@
+.avatar {
+  padding: 10px;
+  text-align: center;
+}
+.avatar .name {
+  margin: 10px 0;
+  font-size: 18px;
+  color: #1890ff;
+}

@@ -1,0 +1,23 @@
+.header{
+  padding: 0 15px;
+  height: 48px;
+  line-height: 46px;
+  border-bottom: 1px solid #EEEEEE;
+  background-color: #FFFFFF;
+}
+.header-content{
+  margin: 0 auto;
+  max-width: 1100px;
+}
+.header .title{
+  margin-right: 10px;
+  font-size: 18px;
+  color: #1890ff;
+}
+.header .describtion{
+  font-size: 12px;
+  color: #999999;
+}
+.header .menu-content{
+  text-align: right;
+}
