@@ -1,14 +1,14 @@
 import react, {useState} from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import { Row, Col, Space, List, Breadcrumb } from 'antd'
+import { Row, Col, Space, List } from 'antd'
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
 import Header from '../components/Header'
 import Avatar from '../components/Avatar'
 import '../public/style/global.css'
 import '../public/style/page.css'
 
-export default function MyList() {
+export default function Home() {
   const [myList, setList] = useState(
     [
       {title: '标题1', content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容'},
@@ -28,17 +28,14 @@ export default function MyList() {
   return (
     <div className="container">
       <Head>
-        <title>List</title>
+        <title>Create Next App</title>
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header/>
       <Row className="main-content" type="flex" justify="center">
         <Col span={16}  className="main-left">
-          <Breadcrumb>
-            <Breadcrumb.Item>首页</Breadcrumb.Item>
-            <Breadcrumb.Item>列表页</Breadcrumb.Item>
-          </Breadcrumb>
           <List
-            header={<div>最新更新</div>}
+            header={<div className="page-list-header"><label>最新更新</label><Link href="/list"><a className="more">更多</a></Link></div>}
             itemLayout="vertical"
             dataSource={myList}
             renderItem={item => (

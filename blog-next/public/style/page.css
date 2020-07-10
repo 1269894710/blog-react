@@ -22,3 +22,8 @@
 .main-left .page-list-header .more{
   float: right;
 }
+.details-title{
+  margin: 16px 0;
+  font-size: 20px;
+  text-align: center;
+}
