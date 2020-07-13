@@ -1,4 +1,5 @@
 import react, {useState} from 'react'
+import axios from 'axios'
 import Head from 'next/head'
 import Link from 'next/link'
 import { Row, Col, Space, List } from 'antd'
@@ -8,17 +9,8 @@ import Avatar from '../components/Avatar'
 import '../public/style/global.css'
 import '../public/style/page.css'
 
-export default function Home() {
-  const [myList, setList] = useState(
-    [
-      {title: '标题1', content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容'},
-      {title: '标题2', content: '内容'},
-      {title: '标题3', content: '内容'},
-      {title: '标题4', content: '内容'},
-      {title: '标题4', content: '内容'},
-      {title: '标题4', content: '内容'}
-    ]
-  )
+function Home(list) {
+  const [myList, setList] = useState(list.body)
   const IconText = ({ icon, text }) => (
     <Space>
       {React.createElement(icon)}
@@ -41,7 +33,7 @@ export default function Home() {
             renderItem={item => (
               <List.Item
                 actions={[
-                  <IconText icon={StarOutlined} text="156" key="list-vertical-star-o" />,
+                  <IconText icon={StarOutlined} text="测试" key="list-vertical-star-o" />,
                   <IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,
                   <IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
                 ]}
@@ -65,3 +57,13 @@ export default function Home() {
     </div>
   )
 }
+
+Home.getInitialProps = async () => {
+  let result = await axios('http://127.0.0.1:7001/views/getArticleList').then((res) => {
+    return res.data
+  })
+  console.log(result)
+  return result
+}
+
+export default Home
