@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import
+import axios from 'axios'
+import dataPath from '../config/api'
 import 'antd/dist/antd.css'
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
@@ -11,7 +12,14 @@ function Login() {
   const [isLoading, setLoading] = useState(false)
 
   const onFinish = values => {
-    console.log('Received values of form: ', values);
+    console.log('Received values of form: ', values)
+    axios({
+      method: 'post',
+      url: 'http://127.0.0.1:7001/admin/checkLogin',
+      params: values
+    }).then((res) => {
+      console.log(res)
+    })
   };
   return (
     <div className="login-content">
@@ -25,7 +33,7 @@ function Login() {
       >
         <h1>用户登录</h1>
         <Form.Item
-          name="username"
+          name="userName"
           rules={[
             {
               required: true,
