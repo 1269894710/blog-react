@@ -38,7 +38,7 @@ function Home(list) {
                   <IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
                 ]}
               >
-                <Link href="/details">
+                <Link href={{pathname: '/details', query: {id: item.id}}}>
                   <a>
                     <List.Item.Meta
                       title={item.title}
