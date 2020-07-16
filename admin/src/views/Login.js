@@ -6,7 +6,7 @@ import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import '../access/style/view.css'
 
-function Login() {
+function Login(props) {
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
   const [isLoading, setLoading] = useState(false)
@@ -15,10 +15,12 @@ function Login() {
     console.log('Received values of form: ', values)
     axios({
       method: 'post',
-      url: 'http://127.0.0.1:7001/admin/checkLogin',
-      params: values
+      url: dataPath.checkLogin,
+      data: values,
+      withCredentials: true
     }).then((res) => {
       console.log(res)
+      // props.history.push('/home')
     })
   };
   return (

@@ -43,6 +43,18 @@ module.exports = appInfo => {
     agent: false,
   };
 
+  config.security = {
+    csrf: {
+      enable: false
+    },
+    domainWhiteList: ['*']
+  };
+  config.cors = {
+    origin:'http://localhost:3001',
+    credentials: true, // 允许跨域请求携带cookies
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
+  };
+
   return {
     ...config,
     ...userConfig,

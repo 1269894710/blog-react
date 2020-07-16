@@ -6,7 +6,7 @@ import Home from './Home'
 function Main() {
   return (
     <Router>
-      <Route path="/login" component={Login}/>
+      <Route path="/" component={Login}/>
       <Route path="/home" component={Home}/>
     </Router>
   );
