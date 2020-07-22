@@ -48,7 +48,7 @@ function Home() {
               <Breadcrumb.Item>工作台</Breadcrumb.Item>
             </Breadcrumb>
             <div className="site-layout-background" style={{ padding: 24, minHeight: 360, background: '#FFFFFF' }}>
-              <Route path="/home/addArticle" component={AddArticle} />
+              <Route path="/" component={AddArticle} />
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import axios from 'axios'
 import dataPath from '../config/api'
 import 'antd/dist/antd.css'
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button, Checkbox, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import '../access/style/view.css'
 
@@ -20,7 +20,12 @@ function Login(props) {
       withCredentials: true
     }).then((res) => {
       console.log(res)
-      // props.history.push('/home')
+      const _data = res.data
+      if (_data.body.status) {
+        props.history.push('/home')
+      } else {
+        message.error(_data.msg);
+      }
     })
   };
   return (
