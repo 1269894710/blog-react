@@ -20,7 +20,11 @@ function Login(props) {
       withCredentials: true
     }).then((res) => {
       console.log(res)
-      // props.history.push('/home')
+      let _data = res.data
+      if (_data.body.status) {
+        localStorage.setItem('openId', _data.openId)
+        props.history.push('/home')
+      }
     })
   };
   return (

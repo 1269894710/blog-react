@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Route} from 'react-router-dom'
 import AddArticle from './AddArticle'
+import ArticleList from './ArticleList'
 import 'antd/dist/antd.css'
 import { Layout, Menu, Breadcrumb } from 'antd';
 import {
@@ -36,7 +37,7 @@ function Home() {
             </Menu.Item>
             <SubMenu key="sub1" icon={<UserOutlined />} title="文章管理">
               <Menu.Item key="3">添加文章</Menu.Item>
-              <Menu.Item key="4">文章别表</Menu.Item>
+              <Menu.Item key="4">文章列表</Menu.Item>
             </SubMenu>
             <Menu.Item key="9" icon={<FileOutlined />} >留言管理</Menu.Item>
           </Menu>
@@ -48,7 +49,9 @@ function Home() {
               <Breadcrumb.Item>工作台</Breadcrumb.Item>
             </Breadcrumb>
             <div className="site-layout-background" style={{ padding: 24, minHeight: 360, background: '#FFFFFF' }}>
+              <Route exact path="/" component={AddArticle} />
               <Route path="/home/addArticle" component={AddArticle} />
+              <Route path="/home/articleList" component={ArticleList} />
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
